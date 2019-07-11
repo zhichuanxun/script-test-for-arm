@@ -58,7 +58,7 @@ operation = {
             'name': 'download kubectl',
             'commands': [
                 {
-                    'do': f'sudo curl -LO https://storage.googleapis.com/kubernetes-release/release/{paras["version"]}/bin/linux/amd64/kubectl',
+                    'do': f'sudo curl -LO https://storage.googleapis.com/kubernetes-release/release/{custom["version"]}/bin/linux/amd64/kubectl',
                     'undo': 'rm ./kubectl'
                 },
                 {
@@ -75,7 +75,7 @@ operation = {
             'name': 'create aks cluster',
             'commands': [
                 {
-                    'do': f'az aks create --resource-group {custom["rgName"]}  --name {custom["aksName"]}  --node-count {paras["nodeCount"]} --enable-addons monitoring --service-principal {paras["appid"]} --client-secret {paras["pw"]} --generate-ssh-keys',
+                    'do': f'az aks create --resource-group {custom["rgName"]}  --name {custom["aksName"]}  --node-count {custom["nodeCount"]} --enable-addons monitoring --service-principal {paras["appid"]} --client-secret {paras["pw"]} --generate-ssh-keys',
                     # TODO
                     'undo': ''
                 }
