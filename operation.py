@@ -15,7 +15,8 @@ custom = {
     'version': 'v1.15.0',
     'nodeCount': '1',
     'rgName': 'aksRG',
-    'aksName': 'aksTest'
+    'aksName': 'aksTest',
+    'yaml': 'test.yaml'
 }
 
 operation = {
@@ -90,6 +91,15 @@ operation = {
                 }
             ]
         },
+        {
+            'name': 'apply app',
+            'commands': [
+                {
+                    'do': f'kubectl apply -f ./{custom["yaml"]}',
+                    'undo': ''
+                }
+            ]
+        }
     ]
 }
 

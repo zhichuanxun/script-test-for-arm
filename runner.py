@@ -14,7 +14,7 @@ class Runner:
             stepName = step['name']
             commands = step['commands']
            
-            print(f'step {stepName} start')
+            print(f'step: {stepName} start')
             for cmdIndex, cmdValue in enumerate(commands):
                 cmd = Command(cmdValue['do'], cmdValue['undo'])
                 exitCode, output = cmd.doExecute()
@@ -27,7 +27,7 @@ class Runner:
                         if retryCode :
                             self.__reportError(opName,stepName, stepIndex, cmdIndex, cmdValue, output)
             
-            print(f'step {stepName} complete')
+            print(f'step: {stepName} complete')
             print('#########################')
                     
         
@@ -46,8 +46,13 @@ class Command:
         self.__canUndo = undoCmd == ''
     
     def doExecute(self):
+        print(f'execute command： {self.__doCmd}')
+        print('--------------------------------------')
         p = subprocess.Popen(self.__doCmd, shell=True)
         exitcode, output = p.communicate()
+        print(f'exitcode: {exitcode}')
+        print('--------------------------------------')
+
         return exitcode, output
 
     def undoExecute(self):
