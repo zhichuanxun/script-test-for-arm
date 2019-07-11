@@ -46,11 +46,13 @@ class Command:
         self.__canUndo = undoCmd == ''
     
     def doExecute(self):
-        exitcode, output = subprocess.getstatusoutput(self.__doCmd)
+        p = subprocess.Popen(self.__doCmd, shell=True)
+        exitcode, output = p.communicate()
         return exitcode, output
 
     def undoExecute(self):
-        exitcode, output = subprocess.getstatusoutput(self.__undoCmd)
+        p = subprocess.Popen(self.__undoCmd, shell=True)
+        exitcode, output = p.communicate()
         return exitcode, output
 
     def canUndo(self):
