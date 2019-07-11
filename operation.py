@@ -62,7 +62,7 @@ operation = {
                     'undo': 'rm ./kubectl'
                 },
                 {
-                    'do': 'chmod +x ./kubectl',
+                    'do': 'sudo chmod +x ./kubectl',
                     'undo': ''
                 },
                 {
