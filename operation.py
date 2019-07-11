@@ -3,10 +3,10 @@ import sys
 
 
 paras = {
-    'appid': sys.argv[0],
-    'pw': sys.argv[1],
-    'tenant': sys.argv[2],
-    'location': sys.argv[3],
+    'appid': sys.argv[1],
+    'pw': sys.argv[2],
+    'tenant': sys.argv[3],
+    'location': sys.argv[4],
     # TODO: find other way to check kubectl version
 
 }
